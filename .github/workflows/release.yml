@@ -1,0 +1,30 @@
+# release-please keeps a release PR open from the Conventional Commits on main, and merging that
+# PR tags vX.Y.Z and writes the CHANGELOG.md entry. A consuming module pins a tag with
+# go get -tool. It runs as a GitHub App, so the release PR it opens triggers CI; a PR opened with
+# GITHUB_TOKEN triggers no workflows. The App's client id is the variable RELEASE_APP_CLIENT_ID,
+# and its private key is the secret RELEASE_APP_PRIVATE_KEY.
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        id: app-token
+        with:
+          client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+      - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        with:
+          token: ${{ steps.app-token.outputs.token }}

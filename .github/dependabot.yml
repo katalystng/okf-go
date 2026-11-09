@@ -1,0 +1,22 @@
+# Dependabot opens a PR when a pinned dependency has a newer release, once the release is two weeks
+# old. A module bump is titled deps, which the changelog lists; an Action bump is titled ci, which
+# the changelog hides.
+version: 2
+updates:
+  - package-ecosystem: gomod
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 14
+    commit-message:
+      prefix: deps
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 14
+    commit-message:
+      prefix: ci

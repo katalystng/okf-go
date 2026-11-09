@@ -1,0 +1,7 @@
+okf-go
+
+This product includes software adapted from the OKF bundle viewer in
+knowledge-catalog (https://github.com/GoogleCloudPlatform/knowledge-catalog),
+licensed under the Apache License, Version 2.0. The adapted files are
+viz/assets/viz.html, viz/assets/viz.css, and viz/assets/viz.js, and each one
+states the changes made to it.
