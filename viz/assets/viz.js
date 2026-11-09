@@ -183,7 +183,9 @@
     document.getElementById("detail-content").hidden = true;
   }
 
-  function showDetail(conceptId) {
+  // showDetail fills the detail pane. focus centers the graph on the concept; the first view leaves
+  // it unset, so the whole graph stays in frame.
+  function showDetail(conceptId, focus = true) {
     const data = nodeIndex[conceptId];
     if (!data) return;
     cy.elements().unselect();
@@ -338,7 +340,7 @@
       blSection.hidden = true;
     }
 
-    cy.animate({ center: { eles: node }, zoom: Math.max(cy.zoom(), 1.0) }, { duration: 200 });
+    if (focus) cy.animate({ center: { eles: node }, zoom: Math.max(cy.zoom(), 1.0) }, { duration: 200 });
   }
 
   function makeBadge(text, cls) {
@@ -391,5 +393,5 @@
 
   // Auto-show the first concept.
   const initial = bundle.nodes[0];
-  if (initial) showDetail(initial.data.id);
+  if (initial) showDetail(initial.data.id, false);
 })();

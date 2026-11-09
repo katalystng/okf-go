@@ -5,6 +5,8 @@ Tools for [Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowled
 - `okf check` checks a bundle for conformance and for the specification's guidance: frontmatter, links, index files, and the trust and lifecycle fields.
 - `okf viz` renders a bundle as one HTML page with a graph of its concepts and a detail pane, colored by top-level folder.
 
+![okf viz rendering this repository's own docs bundle: four concepts colored by layer, with the intent selected in the detail pane](assets/viz.png)
+
 ## Install
 
 Pin it as a Go tool in the module that holds the bundle:
