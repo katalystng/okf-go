@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/katalystng/okf-go/compare/v0.2.0...v0.2.1) (2026-11-09)
+
+
+### Bug Fixes
+
+* **viz:** keep the whole graph in frame on first load ([#5](https://github.com/katalystng/okf-go/issues/5)) ([e92f99e](https://github.com/katalystng/okf-go/commit/e92f99e9d79c059f5a20a6b7d86a4a3b0eb43fc9))
+
 ## [0.2.0](https://github.com/katalystng/okf-go/compare/v0.1.0...v0.2.0) (2026-11-09)
 
 
