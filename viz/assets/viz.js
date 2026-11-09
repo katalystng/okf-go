@@ -1,7 +1,8 @@
 // Adapted from the OKF bundle viewer in GoogleCloudPlatform/knowledge-catalog (Apache-2.0). See NOTICE.
 // Changes: staleness is computed when the page is viewed, so a committed page stays the same across
 // days; relative and bundle-relative links both open their concept; a source that names a concept
-// draws a dashed edge; nodes take their layer's color, with a legend; attribution shows when present.
+// draws a dashed edge and opens that concept; nodes take their layer's color, with a legend;
+// summary and attribution show when present.
 (function () {
   const bundle = window.BUNDLE;
   const now = Date.now();
@@ -200,6 +201,9 @@
     document.getElementById("detail-title").textContent = data.label;
     document.getElementById("detail-id").textContent = conceptId;
     document.getElementById("detail-description").textContent = data.description || "—";
+    const summaryEl = document.getElementById("detail-summary");
+    summaryEl.textContent = data.summary || "";
+    summaryEl.hidden = document.getElementById("detail-summary-label").hidden = !data.summary;
 
     const resourceEl = document.getElementById("detail-resource");
     resourceEl.innerHTML = "";
@@ -261,7 +265,15 @@
       for (const s of sources) {
         const li = document.createElement("li");
         const label = s.title || s.resource || s.id || "source";
-        if (s.resource && /^https?:\/\//.test(s.resource)) {
+        const target = s.resource && !/^[a-z][a-z0-9+.-]*:/i.test(s.resource) ? resolve(conceptId, s.resource) : null;
+        if (target && nodeIndex[target]) {
+          const a = document.createElement("a");
+          a.className = "internal";
+          a.href = "javascript:void(0)";
+          a.textContent = s.title ? `${s.title} (${s.resource})` : s.resource;
+          a.addEventListener("click", () => showDetail(target));
+          li.appendChild(a);
+        } else if (s.resource && /^https?:\/\//.test(s.resource)) {
           const a = document.createElement("a");
           a.href = s.resource;
           a.textContent = label;
@@ -270,7 +282,7 @@
           a.className = "external";
           li.appendChild(a);
         } else {
-          li.textContent = s.resource ? `${label} (${s.resource})` : label;
+          li.textContent = s.resource && s.resource !== label ? `${label} (${s.resource})` : label;
         }
         ul.appendChild(li);
       }

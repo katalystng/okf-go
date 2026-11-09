@@ -111,6 +111,7 @@ func build(b *bundle.Bundle, opts Options) graph {
 			"layer":       l,
 			"color":       colors[l],
 			"description": c.String("description"),
+			"summary":     c.String("summary"),
 			"resource":    c.String("resource"),
 			"tags":        nonNil(c.Strings("tags")),
 			"status":      c.Status(),
