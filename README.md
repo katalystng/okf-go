@@ -1,6 +1,6 @@
 # okf-go
 
-Tools for [Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf) (OKF) v0.2 bundles: markdown docs with YAML frontmatter, kept in a repository.
+Tools for [Open Knowledge Format](https://github.com/GoogleCloudPlatform/open-knowledge-format) (OKF) v0.2 bundles: markdown docs with YAML frontmatter, kept in a repository.
 
 - `okf check` checks a bundle for conformance and for the specification's guidance: frontmatter, links, index files, and the trust and lifecycle fields.
 - `okf viz` renders a bundle as one HTML page with a graph of its concepts and a detail pane, colored by top-level folder.
@@ -38,4 +38,4 @@ okf viz [-o file] [-name name] [-layers a,b,c] [-check] <bundle>
 
 ## License
 
-Apache License 2.0. The viewer is adapted from the bundle viewer in [knowledge-catalog](https://github.com/GoogleCloudPlatform/knowledge-catalog); see [NOTICE](NOTICE).
+Apache License 2.0. The viewer is adapted from the bundle viewer in [open-knowledge-format](https://github.com/GoogleCloudPlatform/open-knowledge-format); see [NOTICE](NOTICE).

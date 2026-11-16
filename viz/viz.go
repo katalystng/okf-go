@@ -1,5 +1,5 @@
 // Package viz renders an OKF bundle as one self-contained HTML page: a graph of its concepts with a
-// detail pane for each. The page is a port of the viewer in GoogleCloudPlatform/knowledge-catalog.
+// detail pane for each. The page is a port of the viewer in GoogleCloudPlatform/open-knowledge-format.
 //
 // The output depends on the bundle alone, so a committed page changes only when the bundle does.
 // Staleness, which depends on the time of viewing, is computed in the page.
