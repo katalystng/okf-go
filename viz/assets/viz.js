@@ -1,4 +1,4 @@
-// Adapted from the OKF bundle viewer in GoogleCloudPlatform/knowledge-catalog (Apache-2.0). See NOTICE.
+// Adapted from the OKF bundle viewer in GoogleCloudPlatform/open-knowledge-format (Apache-2.0). See NOTICE.
 // Changes: staleness is computed when the page is viewed, so a committed page stays the same across
 // days; relative and bundle-relative links both open their concept; a source that names a concept
 // draws a dashed edge and opens that concept; nodes take their layer's color, with a legend;

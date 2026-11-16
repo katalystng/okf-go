@@ -56,4 +56,4 @@ verify-docs:
 
 ## The viewer
 
-The page is a port of the bundle viewer in GoogleCloudPlatform/knowledge-catalog. It loads Cytoscape 3.28.1 and marked 12.0.0 from jsdelivr, so a reader needs network access to view it.
+The page is a port of the bundle viewer in GoogleCloudPlatform/open-knowledge-format. It loads Cytoscape 3.28.1 and marked 12.0.0 from jsdelivr, so a reader needs network access to view it.
